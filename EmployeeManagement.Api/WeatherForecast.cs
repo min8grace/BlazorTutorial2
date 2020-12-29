@@ -1,6 +1,6 @@
 using System;
 
-namespace EmployeeManagement.Web.Data
+namespace EmployeeManagement.Api
 {
     public class WeatherForecast
     {
