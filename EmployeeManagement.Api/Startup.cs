@@ -29,10 +29,13 @@ namespace EmployeeManagement.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
             services.AddControllers();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             services.AddSwaggerGen(c =>
             {

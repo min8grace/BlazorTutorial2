@@ -21,53 +21,30 @@ namespace EmployeeManagement.Web.Pages
         {
             //System.Threading.Thread.Sleep(2000);
             Employee e1 = new Employee
-
             {
-
                 EmployeeId = 1,
-
-
                 FirstName = "John",
-
-                LastName = "Hastings"
-            ,
-
+                LastName = "Hastings",
                 Email = "David@pragimtech.com",
-
                 DateOfBrith = new DateTime(1980, 10, 5),
-
                 Gender = Gender.Male,
-
                 Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
-
                 PhotoPath = "images/john.png"
-
             };
 
             Employee e2 = new Employee
-
             {
-
                 EmployeeId = 2,
-
                 FirstName = "Sam",
-
                 LastName = "Galloway",
-
                 Email = "Sam@pragimtech.com",
-
-
                 DateOfBrith = new DateTime(1981, 12, 22),
-
                 Gender = Gender.Male,
-
                 Department = new Department { DepartmentId = 2, DepartmentName = "HR" },
-
                 PhotoPath = "images/sam.jpg"
-
             };
 
-            Employee e3 = new Employee
+            Employee e3 = new Employee  
 
             {
 
