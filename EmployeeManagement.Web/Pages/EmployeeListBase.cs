@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace EmployeeManagement.Web.Pages
 {
-
     public class EmployeeListBase : ComponentBase
     {
 
@@ -15,7 +14,6 @@ namespace EmployeeManagement.Web.Pages
         {
             await Task.Run(LoadEmployees);
         }
-
 
         private void LoadEmployees()
         {
@@ -28,7 +26,8 @@ namespace EmployeeManagement.Web.Pages
                 Email = "David@pragimtech.com",
                 DateOfBrith = new DateTime(1980, 10, 5),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                //Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                DepartmentId = 1,
                 PhotoPath = "images/john.png"
             };
 
@@ -40,57 +39,36 @@ namespace EmployeeManagement.Web.Pages
                 Email = "Sam@pragimtech.com",
                 DateOfBrith = new DateTime(1981, 12, 22),
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 2, DepartmentName = "HR" },
+                //Department = new Department { DepartmentId = 2, DepartmentName = "HR" },
+                DepartmentId = 2,
                 PhotoPath = "images/sam.jpg"
             };
 
-            Employee e3 = new Employee  
-
+            Employee e3 = new Employee
             {
-
                 EmployeeId = 3,
-
                 FirstName = "Mary",
-
                 LastName = "Smith",
-
                 Email = "mary@pragimtech.com",
-
-
                 DateOfBrith = new DateTime(1979, 11, 11),
-
-
                 Gender = Gender.Female,
-
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
-
+                DepartmentId = 1,
+                //Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
                 PhotoPath = "images/mary.png"
-
             };
 
             Employee e4 = new Employee
-
             {
-
                 EmployeeId = 3,
-
                 FirstName = "Sara",
-
                 LastName = "Longway",
-
                 Email = "sara@pragimtech.com",
-
                 DateOfBrith = new DateTime(1982, 9, 23),
-
-
                 Gender = Gender.Female,
-
-                Department = new Department { DepartmentId = 3, DepartmentName = "Payroll" },
-
+                DepartmentId = 3,
+                //Department = new Department { DepartmentId = 3, DepartmentName = "Payroll" },
                 PhotoPath = "images/sara.png"
-
             };
-
             Employees = new List<Employee> { e1, e2, e3, e4 };
 
 
