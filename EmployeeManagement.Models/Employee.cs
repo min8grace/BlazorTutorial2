@@ -11,15 +11,13 @@ namespace EmployeeManagement.Models
 
         [Required]
 
-        [StringLength(100, MinimumLength = 2)]
+        [MinLength(2)]
 
         public string FirstName { get; set; }
 
         [Required]
 
         public string LastName { get; set; }
-
-        [Required]
 
         public string Email { get; set; }
 
@@ -29,7 +27,10 @@ namespace EmployeeManagement.Models
 
         public int DepartmentId { get; set; }
 
+        public Department Department { get; set; }
+
         public string PhotoPath { get; set; }
+
 
     }
 
