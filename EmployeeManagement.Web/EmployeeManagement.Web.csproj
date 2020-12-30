@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmployeeManagement.Models\EmployeeManagement.Models.csproj" />
+    <ProjectReference Include="..\Pragim.Components\Pragim.Components.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,9 +8,8 @@ namespace EmployeeManagement.Models
     {
 
         Male,
-
-
-        Female
+        Female,
+        Other
     }
 
 }
