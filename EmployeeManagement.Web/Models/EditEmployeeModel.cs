@@ -1,8 +1,13 @@
-﻿using System;
+﻿using EmployeeManagement.Models;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-namespace EmployeeManagement.Models
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace EmployeeManagement.Web.Models
 {
-    public class Employee
+    public class EditEmployeeModel
     {
 
         public int EmployeeId { get; set; }
@@ -20,6 +25,10 @@ namespace EmployeeManagement.Models
 
         public string Email { get; set; }
 
+        [CompareProperty("Email", ErrorMessage = "Email and Confirm Email must match")]
+
+        public string ConfirmEmail { get; set; }
+
         public DateTime DateOfBrith { get; set; }
 
         public Gender Gender { get; set; }
@@ -30,7 +39,5 @@ namespace EmployeeManagement.Models
 
         public string PhotoPath { get; set; }
 
-
     }
-
 }
