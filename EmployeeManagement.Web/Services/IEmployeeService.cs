@@ -12,6 +12,7 @@ namespace EmployeeManagement.Web.Services
 
         Task<Employee> GetEmployee(int id);
         Task<Employee> UpdateEmployee(Employee updatedEmployee);
+        Task<Employee> CreateEmployee(Employee newEmployee);
 
     }
 }
