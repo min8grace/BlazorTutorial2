@@ -1,4 +1,5 @@
 ﻿using EmployeeManagement.Models;
+using EmployeeManagement.Models.CustomValidators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,8 @@ namespace EmployeeManagement.Web.Models
 
         public int DepartmentId { get; set; }
 
-        public Department Department { get; set; }
+        [ValidateComplexType]
+        public Department Department { get; set; } = new Department();
 
         public string PhotoPath { get; set; }
 

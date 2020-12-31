@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace EmployeeManagement.Models
+namespace EmployeeManagement.Models.CustomValidators
 {
     public class EmailDomainValidator : ValidationAttribute
     {

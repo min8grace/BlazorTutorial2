@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeManagement.Models.CustomValidators;
+using System;
 using System.ComponentModel.DataAnnotations;
 namespace EmployeeManagement.Models
 {
@@ -25,6 +26,7 @@ namespace EmployeeManagement.Models
         public Gender Gender { get; set; }
 
         public int DepartmentId { get; set; }
+        
 
         public Department Department { get; set; }
 
