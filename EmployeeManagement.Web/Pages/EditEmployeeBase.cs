@@ -15,6 +15,7 @@ namespace EmployeeManagement.Web.Pages
 
         public Employee Employee { get; set; } = new Employee();
         public EditEmployeeModel EditEmployeeModel { get; set; } = new EditEmployeeModel();
+        public string PageHeader { get; set; }
 
         [Inject]
 
@@ -42,10 +43,12 @@ namespace EmployeeManagement.Web.Pages
             int.TryParse(Id, out int employeeId);
             if (employeeId != 0)
             {
+                PageHeader = "Edit Employee";
                 Employee = await EmployeeService.GetEmployee(int.Parse(Id));
             }
             else
             {
+                PageHeader = "Create Employee";
                 Employee = new Employee
                 {
                     DepartmentId = 1,
@@ -74,10 +77,12 @@ namespace EmployeeManagement.Web.Pages
             Employee result = null;
             if (Employee.EmployeeId != 0)
             {
+                
                 result = await EmployeeService.UpdateEmployee(Employee);
             }
             else
             {
+                
                 result = await EmployeeService.CreateEmployee(Employee);
             }
             if (result != null)
