@@ -2,16 +2,24 @@
 using EmployeeManagement.Models;
 using EmployeeManagement.Web.Models;
 using EmployeeManagement.Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace EmployeeManagement.Web.Pages
 {
     public class EditEmployeeBase : ComponentBase
     {
+        [CascadingParameter]
+        private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+        [Inject]
+        public IAuthorizationService AuthorizationService { get; set; }
 
         public Employee Employee { get; set; } = new Employee();
         public EditEmployeeModel EditEmployeeModel { get; set; } = new EditEmployeeModel();
@@ -40,6 +48,27 @@ namespace EmployeeManagement.Web.Pages
 
         protected async override Task OnInitializedAsync()
         {
+            var authenticationState = await authenticationStateTask;
+
+            if (authenticationState.User.IsInRole("Administrator"))
+            {
+                // Execute Admin logic
+            }
+
+            var user = (await authenticationStateTask).User;
+
+            if ((await AuthorizationService.AuthorizeAsync(user, "admin-policy")).Succeeded)
+            {
+                // Execute code specific to admin-policy
+            }
+
+            if (!authenticationState.User.Identity.IsAuthenticated)
+            {
+                string returnUrl = WebUtility.UrlEncode($"/editEmployee/{Id}");
+                NavigationManager.NavigateTo($"/identity/account/login?returnUrl={returnUrl}");
+            }
+
+
             int.TryParse(Id, out int employeeId);
             if (employeeId != 0)
             {
@@ -66,12 +95,12 @@ namespace EmployeeManagement.Web.Pages
             Employee result = null;
             if (Employee.EmployeeId != 0)
             {
-                
+
                 result = await EmployeeService.UpdateEmployee(Employee);
             }
             else
             {
-                
+
                 result = await EmployeeService.CreateEmployee(Employee);
             }
             if (result != null)

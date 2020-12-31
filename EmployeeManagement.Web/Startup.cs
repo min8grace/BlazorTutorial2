@@ -24,9 +24,10 @@ namespace EmployeeManagement.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAuthentication("Identity.Apllication").AddCookie();
-            services.AddAutoMapper(typeof(EmployeeProfile));
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddAutoMapper(typeof(EmployeeProfile));
             services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44300/");

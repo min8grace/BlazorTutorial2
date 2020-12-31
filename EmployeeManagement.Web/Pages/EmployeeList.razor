@@ -1,5 +1,8 @@
 ﻿@page "/"
 @inherits EmployeeListBase
+
+@attribute [Authorize]
+
 <h3>Employee List Count:@SelectedEmployeesCount</h3>
 <input type="checkbox" id="showFooter" @bind="ShowFooter" />
 <label for="showFooter">Show Footer</label>
